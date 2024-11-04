@@ -1,23 +1,35 @@
 package edu.fra.uas;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import edu.fra.uas.controller.BeanController;
+
 @SpringBootApplication
 public class BeanExampleApplication {
 
+	private static final Logger log = LoggerFactory.getLogger(BeanExampleApplication.class);
+
+	@Autowired
+	private BeanController beanController;
 	public static void main(String[] args) {
 		SpringApplication.run(BeanExampleApplication.class, args);
 	}
 
-	@Bean
+	@Bean // Sorgt dafür dass es direkt bei start ausgeführt wird. Die Bean ist das Rückgabeprojekt der anonymen Klasse
 	CommandLineRunner init() {
 		CommandLineRunner action = new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
-				System.out.println("Hello World!");
+				beanController.putMessage("Hello World");
+				beanController.getMessage();
+				beanController.increaseCounter();
+				beanController.increaseCounter();
 			}
 		};
 		return action;

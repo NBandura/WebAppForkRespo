@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NotendurschschnittApplication",
+            "request": "launch",
+            "mainClass": "edu.fra.uas.NotendurschschnittApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "NotendurschschnittApplication",
+            "request": "launch",
+            "mainClass": "edu.fra.uas.Notendurschschnitt.NotendurschschnittApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "UserApplication",
             "request": "launch",
             "mainClass": "edu.fra.uas.UserApplication",
